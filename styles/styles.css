@@ -161,32 +161,34 @@ header div>a {
 
 
 /* Set up practice section */
-.practice{
-    display: flex;                  /* Enable flexbox layout  */
-    justify-content: flex-start;    /* Align content to the top */
+.practice {
+    display: flex;
+    /* Enable flexbox layout  */
+    justify-content: flex-start;
+    /* Align content to the top */
     flex-direction: column;
 }
 
-.practice > .imgcontainer > img{
+.practice>.imgcontainer>img {
     max-width: 100%;
     height: auto;
 }
 
-.practice > .practice-text{
+.practice>.practice-text {
     padding: 0 1.5rem;
 }
 
-.practice > .practice-text > h1{
+.practice>.practice-text>h1 {
     font-size: xx-large;
     margin-bottom: 1.5rem;
 }
 
-.practice > .practice-text > p{
+.practice>.practice-text>p {
     font-size: small;
     font-weight: lighter;
 }
 
-.practice > .practice-text > p > span{
+.practice>.practice-text>p>span {
     display: block;
     margin: auto;
     font-weight: bold;
@@ -195,18 +197,18 @@ header div>a {
 
 /* Set up events section */
 
-.events{
+.events {
     display: grid;
     grid-template-rows: repeat(3, min-content);
     border-left: 1px solid #e7e7e7;
 
 }
 
-.events .events-block:first-child{
+.events .events-block:first-child {
     padding-top: 2rem;
 }
 
-.events .events-block{
+.events .events-block {
     display: grid;
     grid-template-columns: 0.35fr 0.65fr;
     align-items: center;
@@ -214,33 +216,37 @@ header div>a {
     padding: 1rem;
 }
 
-.events img{
+.events img {
     width: 100%;
     height: auto;
 }
 
-.events .events-text{
+.events .events-img-mobile{
+    display: none;
+}
+
+.events .events-text {
     margin-left: 1rem;
     height: 100%;
     align-content: center;
 }
 
-.events .events-text h3{
+.events .events-text h3 {
     font-size: large;
 }
 
-.events .events-text p{
+.events .events-text p {
     font-size: small;
 }
 
-.events .events-text a{
+.events .events-text a {
     font-size: small;
     color: #3434c6;
 }
 
 /* Set up footer */
 
-footer{
+footer {
     font-size: 0.8rem;
     display: flex;
     grid-column: full-start / full-end;
@@ -249,29 +255,114 @@ footer{
     padding: 1rem 1.5rem 2rem;
 }
 
-footer > ul{
+footer>ul {
     list-style: none;
     display: flex;
 }
 
-footer > ul > li{
+footer>ul>li {
     margin-right: 0.5rem;
 }
 
-footer > ul > li > a{
+footer>ul>li>a {
     color: #3434c6;
 }
 
-footer > ul > li > a:visited{
+footer>ul>li>a:visited {
     color: #f00;
 }
 
 
 /* Hide events mobile */
+#nav-mobile {
+    display: none;
+}
 
+/* Hide events mobile img */
+.events>.events-block>.events-img-mobile {
+    display: none;
+}
 
 /** ********************** **/
 /** End of Desktop Section **/
+
+
+/* Start of designing Learning section */
+
+
+/* I have to start with the Section first, just like the Events and Practice sections. So select the section class which is .learning */
+.learning {
+    grid-column: full-start / full-end;
+    /* To stretch across the full page width */
+    display: grid;
+    /* Activate grid layout */
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 equal columns */
+    gap: 2rem;
+    /* 32px space between everything */
+    background-color: #ebebeb;
+    /* light grey */
+    padding: 2rem 4.5rem;
+    /* 32px top/bottom, 72px left/right */
+}
+
+/* The title box: make it take up a whole row on its own */
+.startlearning-text {
+    grid-column: 1 / -1;
+    /* go from the first column line to the last */
+    text-align: center;
+    /* centre the title */
+}
+
+.startlearning-text h1 {
+    font-size: xx-large;
+    color: #484848;
+}
+
+/* Each white card */
+.learning-block {
+    background-color: #fff;
+}
+
+/* The picture at the top of each card */
+.learning-block img {
+    display: block;
+    /* removes a tiny gap under the image */
+    width: 100%;
+    /* fill the card's width */
+    height: auto;
+    /* keep the picture's shape */
+}
+
+/* The text area under the picture */
+.learning-text {
+    padding: 1rem 1rem 1.5rem;
+    /* 16px top, 16px sides, 24px bottom */
+}
+
+/* Card titles, e.g. "Software Engineering" */
+.learning-text h3 {
+    font-size: large;
+    color: #484848;
+    margin-bottom: 0.5rem;
+    /* 8px gap below */
+}
+
+/* Both grey lines ("COURSES" and the course list) */
+.learning-text p {
+    font-size: small;
+    color: #9b9b9b;
+    line-height: 1.5;
+    /* a bit of space between lines */
+}
+
+/* Only the FIRST <p> in each card, which is "COURSES" */
+.learning-text p:first-of-type {
+    margin-bottom: 0.5rem;
+    /* 8px gap below */
+}
+
+
 
 
 /* TODO */
@@ -280,7 +371,127 @@ footer > ul > li > a:visited{
 /** *********************** **/
 
 /* if the width of screen is 640px and below (aka 40rem x 16px) */
-@media screen and (max-width: 40rem) {}
+@media screen and (max-width: 40rem) {
+
+/* Hide the desktop <nav> and practice class */
+nav, .practice {
+    display: none;
+}
+
+/* Display mobile nav */
+#nav-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    grid-column: full-start/full-end;
+    height: 4rem;
+}
+
+/* Set the header image to take up the entire viewport width */
+header {
+    display: grid;
+    grid-column: full-start/full-end;
+}
+
+.imgcontainer {
+    padding: 0;
+}
+
+header>div {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 2rem 1rem;
+}
+
+header>div>h2 {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+
+}
+
+/* Set up the events for mobile */
+.events {
+    display: grid;
+    grid-column: full-start / full-end;
+    border-left: none;
+}
+
+.events>.events-block {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 1rem 0 1rem;
+    border: none;
+}
+
+    .events img{
+        display: none;
+    }
+
+.events .events-block:first-child {
+    padding-top: 1rem;
+}
+
+.events .events-block:last-child {
+    padding-bottom: 2rem;
+}
+
+.events>.events-block>.events-img-desktop {
+    display: none;
+}
+
+.events>.events-block>.events-img-mobile {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.events>.events-block>.events-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 5rem;
+    margin-left: 1rem;
+}
+
+/* Set footer for mobile */
+footer>ul {
+    display: none;
+}
+
+    /* Update hero banner call-to-action */
+
+    .imgcontainer{
+        padding: 0;
+    }
+
+    header > div{
+        display: block;
+        width: auto;
+        height: auto;   
+        padding: 2rem 1rem;           
+    }
+
+    header div > h1{
+        padding-bottom: 2rem;       
+                                       
+    }
+
+    header div > h2{
+        font-size: large;
+        padding-bottom: 1.5rem;              
+                                        
+    }
+
+    header div > a{
+        margin-bottom: 2rem;
+    }
+
+
+}
+
+
 
 /* *********************** */
 /** End of Mobile Section **/
