@@ -66,10 +66,6 @@ nav ul li a {
 /* TODO */
 /* To complete the logo hyperlinks' styles */
 
-nav ul li a {
-    font-size: 0.75rem;
-}
-
 nav a {
     display: flex;
     align-items: center;
@@ -409,7 +405,7 @@ footer>ul>li>a:visited {
 
 
 .thesis>.thesis-text>p {
-    font-weight: lighter;
+    color: #9b9b9b;
 }
 
 
@@ -454,6 +450,7 @@ footer>ul>li>a:visited {
 
 .fisma .fisma-text p {
     font-size: small;
+    color: #9b9b9b;
 }
 
 
@@ -579,11 +576,6 @@ footer>ul>li>a:visited {
     /* Each card becomes a grey bar */
     .learning-block {
         background-color: #d8d8d8;
-    }
-
-    /* Spacing inside each bar: 16px top, 16px sides, 24px bottom */
-    .learning-text {
-        padding: 1rem 1rem 1.5rem;
     }
 
     /* Remove the gap that was there for the hidden <p> text */
